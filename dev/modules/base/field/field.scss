@@ -4,6 +4,9 @@
 	padding: 10px;
 	resize: none;
 	background-color: transparent;
-	border: 1px solid $base-border-color;
+	border: none;
 	@include placeholder(#666);
+	&:focus{
+		outline: none;
+	}
 }

@@ -1,0 +1,10 @@
+mixin range(value)
+	.range&attributes(attributes)
+		input(type="range", id="currency-slider", min="0", max="100", value="0", step="0.0001", oninput="updateRangeInput(this)")
+		.flex-container
+			.block-input.cut
+				input(type="number", id="field-crypto").field
+				p.font.text-uppercase.label-crypto
+			.block-input.cut
+				p.font.text-uppercase.label-currency
+				input(type="number", id="field-currency").field

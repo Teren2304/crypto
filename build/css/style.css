@@ -838,13 +838,15 @@ hr {
   padding: 10px;
   resize: none;
   background-color: transparent;
-  border: 1px solid #d4d4d4; }
+  border: none; }
   .field::-webkit-input-placeholder {
     color: #666; }
   .field::-moz-placeholder {
     color: #666; }
   .field:-ms-input-placeholder {
     color: #666; }
+  .field:focus {
+    outline: none; }
 
 .banner {
   margin: 10px 0;
@@ -871,7 +873,6 @@ hr {
       line-height: 1; }
 
 .pricing {
-  border: 1px solid red;
   display: none;
   padding: 10px 0; }
 
@@ -879,35 +880,37 @@ hr {
   margin: 0 2px; }
 
 .range {
-  max-width: 600px;
-  margin: 100px auto;
-  border: 1px solid red; }
+  max-width: 700px;
+  margin: 100px auto; }
   .range input[type="range"] {
-    width: 100%; }
-
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0; }
-
-.block-input {
-  width: 50%;
-  border: 1px solid red;
-  position: relative;
-  height: 50px;
-  background-color: #E8E8E8; }
-  .block-input p {
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-            transform: translateY(-50%);
-    position: absolute; }
-  .block-input:first-child p {
-    right: 10px; }
-  .block-input:first-child input {
-    padding-right: 50px; }
-  .block-input:last-child p {
-    left: 10px; }
-  .block-input:last-child input {
-    text-align: right;
-    padding-left: 50px; }
+    width: 100%;
+    margin-bottom: 20px; }
+  .range input[type="number"]::-webkit-outer-spin-button,
+  .range input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; }
+  .range .block-input {
+    width: 50%;
+    position: relative;
+    height: 50px;
+    border: 1px solid #d4d4d4;
+    background-color: #E8E8E8; }
+    .range .block-input p {
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+              transform: translateY(-50%);
+      position: absolute; }
+    .range .block-input:first-child {
+      margin-right: 10px; }
+      .range .block-input:first-child p {
+        right: 10px; }
+      .range .block-input:first-child input {
+        padding-right: 50px; }
+    .range .block-input:last-child {
+      margin-left: 10px; }
+      .range .block-input:last-child p {
+        left: 10px; }
+      .range .block-input:last-child input {
+        text-align: right;
+        padding-left: 50px; }
