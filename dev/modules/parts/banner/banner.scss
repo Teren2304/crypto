@@ -21,14 +21,26 @@
 			line-height: 1;
 		}
 	}
+	&__scale{
+		height: 5px;
+		width: 100%;
+		display: block;
+		background-color: $second;
+		div{
+			background-color: $primary;
+			height: 100%;
+			transition: all .5s;
+			&.animation{
+				animation: example 60s forwards;
+			}
+		}
+	}
 }
 
 .pricing{
-	//border: 1px solid red;
 	display: none;
 	padding: 10px 0;
 }
-
 
 .currency{
 	&__data{

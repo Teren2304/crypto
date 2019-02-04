@@ -102,12 +102,13 @@ function Currency(){
 										'<span class="currency__data text-uppercase ">'+ value.name +'</span>'+
 									'</h5>'+
 								'</div>'+
+								'<div class="banner__scale"><div></div></div>'+
 								'<div class="banner__body flex-container flex-dir-column align-center-middle flex-grow">'+
 									'<h4 class="h4 currency__title">'+
 										'<span>';
 										html += self.currency == 'usd'? '$': '€'
 										html +='</span>'+
-										'<span>'+data+'</span>'+
+										'<span class="currency__price" data="'+data+'">'+data+'</span>'+
 									'</h4>'+
 									'<button class="button button--primary">Buy Now</button>'+
 									'<p class="font currency__data">'+
@@ -126,7 +127,6 @@ function Currency(){
 		var active = $('.options .button-crypto.active').attr('data');
 		$(active).slideDown();
 	}
-
 	this.setLabel = function(crypto, currency){
 		$('.label-crypto').text(crypto.substring(1));
 		$('.label-currency').text(currency);
@@ -157,6 +157,8 @@ function Currency(){
 		$('#currency-slider').attr('value', min.toFixed(2));
 		$('#field-crypto').val(min.toFixed(2));
 	}
+	this.changeData = function(){
+	}
 }
 
 
@@ -170,6 +172,30 @@ currency.addPriceProposal('usd');
 currency.drawData('usd');
 currency.findActive();
 currency.setLabel(activeCrypto, activeCurrency);
+
+function animateNumber(){
+	$('.banner__scale div').removeClass('animation');
+	$('.currency__price').each(function () {
+		var attr = $(this).attr('data');
+		$(this).animate({ num: attr
+		}, {
+			duration: 3000,
+			step: function(num){
+				$(this).text(num.toFixed(1))
+			},
+			complete: function(){
+				$('.banner__scale div').addClass('animation');
+				this.num = 0;
+			}
+		});
+	});
+}
+
+
+var timerId = setTimeout(function tick() {
+	animateNumber();
+  	timerId = setTimeout(tick, 60000);
+}, 2000);
 function updateRangeInput(elem) {
 	var attr = $(elem).attr('range');
   	$('#field-crypto').val($(elem).val());

@@ -707,6 +707,18 @@ hr {
   background-repeat: no-repeat;
   background-position: center; }
 
+@-webkit-keyframes example {
+  0% {
+    width: 100%; }
+  100% {
+    width: 10%; } }
+
+@keyframes example {
+  0% {
+    width: 100%; }
+  100% {
+    width: 10%; } }
+
 /* Typography */
 .font {
   color: black;
@@ -871,6 +883,20 @@ hr {
     .banner__body * {
       margin: 10px 0;
       line-height: 1; }
+  .banner__scale {
+    height: 5px;
+    width: 100%;
+    display: block;
+    background-color: #E8E8E8; }
+    .banner__scale div {
+      background-color: #1F2374;
+      height: 100%;
+      -webkit-transition: all .5s;
+      -o-transition: all .5s;
+      transition: all .5s; }
+      .banner__scale div.animation {
+        -webkit-animation: example 60s forwards;
+                animation: example 60s forwards; }
 
 .pricing {
   display: none;
