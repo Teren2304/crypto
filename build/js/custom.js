@@ -156,8 +156,11 @@ function Currency(){
 		$('#currency-slider').attr('max', max.toFixed(2));
 		$('#currency-slider').attr('value', min.toFixed(2));
 		$('#field-crypto').val(min.toFixed(2));
-	}
-	this.changeData = function(){
+
+
+		$('.range__min').text(min.toFixed(2));
+		$('.range__middle').text(max.toFixed(2) / 2);
+		$('.range__max').text(max.toFixed(2));
 	}
 }
 

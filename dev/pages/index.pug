@@ -2,9 +2,9 @@ extends ../template/template.pug
 block content
 	.page
 		main.main
-			.container
-				.flex-container.align-justify
-					.flex-container.align-middle.options
+			.container#pricing-options
+				.flex-container.align-justify.flex-wrap
+					.flex-container.align-middle.flex-wrap.options
 						+button('button')(data="#btc", count="0").button-crypto.active BTC
 						+button('button')(data="#eth", count="1").button-crypto ETH
 						+button('button')(data="#xrp", count="2").button-crypto XRP
@@ -12,10 +12,10 @@ block content
 						+button('button')(data="#bch", count="4").button-crypto BCH
 						+button('button')(data="#ada", count="5").button-crypto ADA
 						+button('button')(data="#qtum", count="6").button-crypto QTUM
-					.flex-container.align-middle.options
+					.flex-container.align-middle.flex-wrap.options
 						+button('button')(data="usd").button-currency.active USD
 						+button('button')(data="eur").button-currency EUR
 
 			.container#pricing-packages
-			.container
+			.container#pricing-range
 				+range

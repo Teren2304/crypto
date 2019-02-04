@@ -10,9 +10,9 @@
   <body>
     <div class="page">
       <main class="main">
-        <div class="container">
-          <div class="flex-container align-justify">
-            <div class="flex-container align-middle options">
+        <div class="container" id="pricing-options">
+          <div class="flex-container align-justify flex-wrap">
+            <div class="flex-container align-middle flex-wrap options">
                 <button class="button button-crypto active" data="#btc" count="0">BTC
                 </button>
                 <button class="button button-crypto" data="#eth" count="1">ETH
@@ -28,7 +28,7 @@
                 <button class="button button-crypto" data="#qtum" count="6">QTUM
                 </button>
             </div>
-            <div class="flex-container align-middle options">
+            <div class="flex-container align-middle flex-wrap options">
                 <button class="button button-currency active" data="usd">USD
                 </button>
                 <button class="button button-currency" data="eur">EUR
@@ -37,9 +37,16 @@
           </div>
         </div>
         <div class="container" id="pricing-packages"></div>
-        <div class="container">
+        <div class="container" id="pricing-range">
             <div class="range">
-              <input type="range" id="currency-slider" min="0" max="100" value="0" step="0.0001" oninput="updateRangeInput(this)">
+              <div class="range__wrapper">
+                <input type="range" id="currency-slider" min="0" max="100" value="0" step="0.0001" oninput="updateRangeInput(this)">
+                <div class="flex-container align-middle align-justify">
+                  <p class="font range__min"></p>
+                  <p class="font range__middle"></p>
+                  <p class="font range__max"></p>
+                </div>
+              </div>
               <div class="flex-container">
                 <div class="block-input cut">
                   <input class="field" type="number" id="field-crypto">

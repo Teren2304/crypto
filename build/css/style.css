@@ -902,19 +902,43 @@ hr {
   display: none;
   padding: 10px 0; }
 
-.currency__data * {
-  margin: 0 2px; }
+.currency__data {
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis; }
+  .currency__data * {
+    margin: 0 2px;
+    max-width: 100%; }
 
 .range {
   max-width: 700px;
-  margin: 100px auto; }
+  margin: 0 auto; }
   .range input[type="range"] {
-    width: 100%;
-    margin-bottom: 20px; }
+    width: 100%; }
   .range input[type="number"]::-webkit-outer-spin-button,
   .range input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0; }
+  .range__wrapper {
+    margin: 30px auto 20px auto; }
+  .range__min:before, .range__middle:before, .range__max:before {
+    content: '';
+    height: 10px;
+    width: 1px;
+    background-color: #1F2374;
+    display: block; }
+  .range__min:before {
+    margin-left: 7px;
+    margin-right: auto; }
+  .range__middle:before {
+    margin: 0 auto; }
+  .range__max {
+    text-align: right; }
+    .range__max:before {
+      margin-left: auto;
+      margin-right: 7px; }
   .range .block-input {
     width: 50%;
     position: relative;
