@@ -37,3 +37,48 @@
 		}
 	}
 }
+
+
+.range{
+	max-width: 600px;
+	margin: 100px auto;
+	border: 1px solid red;
+	input[type="range"]{
+		width: 100%;
+	}
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button{
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.block-input{
+	width: 50%;
+	border: 1px solid red;
+	position: relative;
+	height: 50px;
+	background-color: $second;
+	p{
+		top: 50%;
+		transform: translateY(-50%);
+		position: absolute;
+	}
+	&:first-child{
+		p{
+			right: 10px;
+		}
+		input{
+			padding-right: 50px;
+		}
+	}
+	&:last-child{
+		p{
+			left: 10px;
+		}
+		input{
+			text-align: right;
+			padding-left: 50px;
+		}
+	}
+}

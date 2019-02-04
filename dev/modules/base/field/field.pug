@@ -1,15 +1,2 @@
-mixin field(value, placeholder, name, required)
-	if required
-		if value == 'email'
-			input(type="email", placeholder=placeholder, name=name, required).field&attributes(attributes)
-		else if value == 'text'
-			input(type="text", placeholder=placeholder, name=name, required).field&attributes(attributes)
-		else if value == 'password'
-			input(type="password", placeholder=placeholder, name=name, required).field&attributes(attributes)
-	else
-		if value == 'email'
-			input(type="email", placeholder=placeholder, name=name).field&attributes(attributes)
-		else if value == 'text'
-			input(type="text", placeholder=placeholder, name=name).field&attributes(attributes)
-		else if value == 'password'
-			input(type="password", placeholder=placeholder, name=name).field&attributes(attributes)
+mixin field()
+	input.field&attributes(attributes)

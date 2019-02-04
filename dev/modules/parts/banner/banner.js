@@ -5,6 +5,7 @@ $('.button-crypto').click(function(){
 
 	$('.pricing').slideUp();
 	$(data).slideDown();
+	//.label-currency
 });
 
 
@@ -20,49 +21,75 @@ $('.button-currency').click(function(){
 });
 
 
+
+$('.button').click(function(){
+	var activeCrypto = $('.options .button-crypto.active').attr('data'),
+		activeCurrency = $('.options .button-currency.active').attr('data')
+	currency.setLabel(activeCrypto, activeCurrency);
+});
+
+
 function Currency(){
-	
-
 	this._currency = 'eur';
-
-
+	this._crypto = [
+		{
+			name: "btc",
+			value: 3611.54,
+			min: 0.028,
+			max: 1.358,
+			step: 0.00001
+		},
+		{
+			name: "eth",
+			value: 114.53,
+			min: 0.89,
+			max: 43.59,
+			step: 0.00001
+		},
+		{
+			name: "xrp",
+			value: 317,
+			min: 317.734,
+			max: 15568.977,
+			step: 10
+		},
+		{
+			name: "ltc",
+			value: 0.282,
+			min: 2.81,
+			max: 137.63,
+			step: 1
+		},
+		{
+			name: "bch",
+			value: 128.8,
+			min: 0.805,
+			max: 39.434,
+			step: 0.1
+		},
+		{
+			name: "ada",
+			value: 2502,
+			min: 2508.81,
+			max: 122931.83,
+			step: 10
+		},
+		{
+			name: "qtum",
+			value: 5223,
+			min: 52.494,
+			max: 2572.188,
+			step: 1
+		}
+	]
 	this.drawData = function(currency){
 		$('#pricing-packages').html('');
+
 		var self = this;
 		this._currency = currency;
 		var range = this._currency == 'usd' ? [100, 250, 1000, 3000] : [87, 218, 873, 2620];
 		var html = '';
-		var crypto = [
-			{
-				name: "btc",
-				value: 3611.54
-			},
-			{
-				name: "eth",
-				value: 114.53
-			},
-			{
-				name: "xrp",
-				value: 317
-			},
-			{
-				name: "ltc",
-				value: 0.282
-			},
-			{
-				name: "bch",
-				value: 128.8
-			},
-			{
-				name: "ada",
-				value: 2502
-			},
-			{
-				name: "qtum",
-				value: 5223
-			}
-		]
-		$.each(crypto, function (index, value) {
+		$.each(this._crypto, function (index, value) {
 		  	html += '<div class="pricing" id="'+value.name+'">'+
 						'<div class="row">';
 						$.each(range, function (index, data) {
@@ -94,15 +121,30 @@ function Currency(){
 					'</div>';
 		});
 		$('#pricing-packages').append(html);
-		benners = '';
 	}
 	this.findActive = function(){
 		var active = $('.options .button-crypto.active').attr('data');
 		$(active).slideDown();
 	}
 
+	this.setLabel = function(crypto, currency){
+		$('.label-crypto').text(crypto.substring(1));
+		$('.label-currency').text(currency);
+
+
+		var activeCrypto = $('.options .button-crypto.active').attr('count');
+		$('.range input').attr('min', this._crypto[activeCrypto].min);
+		$('.range input').attr('max', this._crypto[activeCrypto].max);
+		$('.range input').attr('value', this._crypto[activeCrypto].min);
+	}
 }
+
+
+var activeCrypto = $('.options .button-crypto.active').attr('data'),
+	activeCurrency = $('.options .button-currency.active').attr('data');
+
 
 var currency = new Currency();
 currency.drawData('usd');
 currency.findActive();
+currency.setLabel(activeCrypto, activeCurrency);

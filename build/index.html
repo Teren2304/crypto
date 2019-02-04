@@ -13,19 +13,19 @@
         <div class="container">
           <div class="flex-container align-justify">
             <div class="flex-container align-middle options">
-                <button class="button button-crypto active" data="#btc">BTC
+                <button class="button button-crypto active" data="#btc" count="0">BTC
                 </button>
-                <button class="button button-crypto" data="#eth">ETH
+                <button class="button button-crypto" data="#eth" count="1">ETH
                 </button>
-                <button class="button button-crypto" data="#xrp">XRP
+                <button class="button button-crypto" data="#xrp" count="2">XRP
                 </button>
-                <button class="button button-crypto" data="#ltc">LTC
+                <button class="button button-crypto" data="#ltc" count="3">LTC
                 </button>
-                <button class="button button-crypto" data="#bch">BCH
+                <button class="button button-crypto" data="#bch" count="4">BCH
                 </button>
-                <button class="button button-crypto" data="#ada">ADA
+                <button class="button button-crypto" data="#ada" count="5">ADA
                 </button>
-                <button class="button button-crypto" data="#qtum">QTUM
+                <button class="button button-crypto" data="#qtum" count="6">QTUM
                 </button>
             </div>
             <div class="flex-container align-middle options">
@@ -37,6 +37,22 @@
           </div>
         </div>
         <div class="container" id="pricing-packages"></div>
+        <div class="container">
+          <div class="range">
+            <input type="range" name="ageInputName" id="ageInputId" min="0" max="100" value="0" step="0.0001" oninput="ageOutputId.value = ageInputId.value">
+            <output name="ageOutputName" id="ageOutputId">0</output>
+            <div class="flex-container">
+              <div class="block-input cut">
+                <input class="field" type="number" id="field-crypto">
+                <p class="font text-uppercase label-crypto"></p>
+              </div>
+              <div class="block-input cut">
+                <p class="font text-uppercase label-currency"></p>
+                <input class="field" type="number" id="field-currency">
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
     </div>
     <script src="./js/custom.js"></script>

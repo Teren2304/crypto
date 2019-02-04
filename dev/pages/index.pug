@@ -5,15 +5,26 @@ block content
 			.container
 				.flex-container.align-justify
 					.flex-container.align-middle.options
-						+button('button')(data="#btc").button-crypto.active BTC
-						+button('button')(data="#eth").button-crypto ETH
-						+button('button')(data="#xrp").button-crypto XRP
-						+button('button')(data="#ltc").button-crypto LTC
-						+button('button')(data="#bch").button-crypto BCH
-						+button('button')(data="#ada").button-crypto ADA
-						+button('button')(data="#qtum").button-crypto QTUM
+						+button('button')(data="#btc", count="0").button-crypto.active BTC
+						+button('button')(data="#eth", count="1").button-crypto ETH
+						+button('button')(data="#xrp", count="2").button-crypto XRP
+						+button('button')(data="#ltc", count="3").button-crypto LTC
+						+button('button')(data="#bch", count="4").button-crypto BCH
+						+button('button')(data="#ada", count="5").button-crypto ADA
+						+button('button')(data="#qtum", count="6").button-crypto QTUM
 					.flex-container.align-middle.options
 						+button('button')(data="usd").button-currency.active USD
 						+button('button')(data="eur").button-currency EUR
 
 			.container#pricing-packages
+			.container
+				.range
+					input(type="range", name="ageInputName", id="ageInputId", min="0", max="100", value="0", step="0.0001", oninput="ageOutputId.value = ageInputId.value")
+					output(name="ageOutputName" id="ageOutputId") 0
+					.flex-container
+						.block-input.cut
+							input(type="number", id="field-crypto").field
+							p.font.text-uppercase.label-crypto
+						.block-input.cut
+							p.font.text-uppercase.label-currency
+							input(type="number", id="field-currency").field
