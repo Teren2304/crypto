@@ -151,9 +151,24 @@ function Currency(){
 		$('#field-crypto').val(min.toFixed(2));
 
 
-		$('.range__min').text(min.toFixed(2));
-		$('.range__middle').text(max.toFixed(2) / 2);
-		$('.range__max').text(max.toFixed(2));
+		$('.range__wrapper .range__scale *').remove();
+		var a = min;
+		var rangeDelay = '<p class="font sm"><span>'+min.toFixed(2)+'</span></p>';
+		for (var i = 0; i < 9; i++) {
+			a += max / 10;
+			rangeDelay += '<p class="font sm"><span>'+a.toFixed(2)+'</span></p>'
+			console.log(a)
+		}
+		rangeDelay += '<p class="font sm"><span>'+max.toFixed(2)+'</span></p>';
+		$('.range__wrapper .range__scale').append(rangeDelay);
+
+
+
+
+
+		//$('.range__min').text(min.toFixed(2));
+		//$('.range__middle').text(max.toFixed(2) / 2);
+		//$('.range__max').text(max.toFixed(2));
 	}
 }
 
