@@ -8,102 +8,37 @@
     <title>Index</title>
   </head>
   <body>
-      <header class="header">
-          <nav class="nav nav--default">
-            <div class="container flex-container align-middle align-justify"><a class="logo" href="/"></a>
-                <ul class="menu flex-container align-middle">
-                  <li class="menu__item"><a class="font link" href="">Item</a></li>
-                  <li class="menu__item"><a class="font link" href="/">Item 2</a></li>
-                  <li class="menu__item"><a class="font link" href="/">Item 3</a></li>
-                  <li class="menu__item"><a class="font link" href="/">Item 4</a></li>
-                  <li class="menu__item"><a class="font link" href="/">Item 5</a></li>
-                  <li class="menu__item"><a class="font link" href="/">Item 6</a></li>
-                  <li class="menu__item"><a class="font link popup__show" data="#popup1">Login</a></li>
-                </ul>
-                <div class="show-menu"><span class="show-menu__item"></span><span class="show-menu__item"></span><span class="show-menu__item"></span></div>
-            </div>
-          </nav>
-        <div class="container-fluid">
-          <div class="container">
-            <p>Header</p>
-          </div>
-        </div>
-      </header>
-    <main class="main">
-      <div class="container">
-          <div class="breadcrumbs flex-container align-middle"><a class="font breadcrumbs__item" href="/">Home</a>
-            <p class="font breadcrumbs__item">Blog</p>
-          </div>
-        <div class="row">
-          <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-3">
-              <article class="article">
-                <header class="article__header">
-                  <div class="img img--hover"><img src="./img/article/img/article-bg-1.jpg"></div>
-                  <h3>Article 1</h3>
-                </header>
-                <main class="article__body">
-                  <p class="font">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas ipsa neque aliquam, repudiandae rerum voluptate facilis hic suscipit quis, fugit ducimus blanditiis, adipisci quisquam sapiente tempora modi odit, illo possimus.</p>
-                </main>
-                <footer class="article__footer">
-                  <p class="font">01.01.2018</p>
-                </footer>
-              </article>
-          </div>
-          <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-3">
-              <article class="article">
-                <header class="article__header">
-                  <div class="img img--hover"><img src="./img/article/img/article-bg-1.jpg"></div>
-                  <h3>Article 2</h3>
-                </header>
-                <main class="article__body">
-                  <p class="font">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas ipsa neque aliquam, repudiandae rerum voluptate facilis hic suscipit quis, fugit ducimus blanditiis, adipisci quisquam sapiente tempora modi odit, illo possimus.</p>
-                </main>
-                <footer class="article__footer">
-                  <p class="font">01.01.2018</p>
-                </footer>
-              </article>
-          </div>
-          <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-3">
-              <article class="article">
-                <header class="article__header">
-                  <div class="img img--hover"><img src="./img/article/img/article-bg-1.jpg"></div>
-                  <h3>Article 3</h3>
-                </header>
-                <main class="article__body">
-                  <p class="font">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas ipsa neque aliquam, repudiandae rerum voluptate facilis hic suscipit quis, fugit ducimus blanditiis, adipisci quisquam sapiente tempora modi odit, illo possimus.</p>
-                </main>
-                <footer class="article__footer">
-                  <p class="font">01.01.2018</p>
-                </footer>
-              </article>
-          </div>
-          <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-3">
-              <article class="article">
-                <header class="article__header">
-                  <div class="img img--hover"><img src="./img/article/img/article-bg-1.jpg"></div>
-                  <h3>Article 4</h3>
-                </header>
-                <main class="article__body">
-                  <p class="font">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas ipsa neque aliquam, repudiandae rerum voluptate facilis hic suscipit quis, fugit ducimus blanditiis, adipisci quisquam sapiente tempora modi odit, illo possimus.</p>
-                </main>
-                <footer class="article__footer">
-                  <p class="font">01.01.2018</p>
-                </footer>
-              </article>
-          </div>
-        </div>
-      </div>
-    </main>
-      <footer class="footer">
+    <div class="page">
+      <main class="main">
         <div class="container">
-          <p>Footer</p>
-        </div>
-      </footer>
-      <div class="shadow">
-          <div class="popup" id="popup1"><a class="close popup__close"></a>
-            <p>popup1</p>
+          <div class="flex-container align-justify">
+            <div class="flex-container align-middle options">
+                <button class="button crypto active" data="#btc">BTC
+                </button>
+                <button class="button crypto" data="#eth">ETH
+                </button>
+                <button class="button crypto" data="#xrp">XRP
+                </button>
+                <button class="button crypto" data="#ltc">LTC
+                </button>
+                <button class="button crypto" data="#bch">BCH
+                </button>
+                <button class="button crypto" data="#ada">ADA
+                </button>
+                <button class="button crypto" data="#qtum">QTUM
+                </button>
+            </div>
+            <div class="flex-container align-middle options">
+                <button class="button" data="usd">USD
+                </button>
+                <button class="button" data="eur">EUR
+                </button>
+            </div>
           </div>
-      </div>
+        </div>
+        <div class="container" id="cha"></div>
+      </main>
+    </div>
     <script src="./js/custom.js"></script>
   </body>
 </html>

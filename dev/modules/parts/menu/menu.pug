@@ -1,8 +1,0 @@
-mixin menu()
-	- var menu = [{name: "Item", link:""},{name: "Item 2", link:"/"},{name: "Item 3", link:"/"},{name: "Item 4", link:"/"},{name: "Item 5", link:"/"},{name: "Item 6", link:"/"}];
-	ul.menu.flex-container.align-middle&attributes(attributes)
-		each item in menu
-			li.menu__item
-				a.font.link(href=item.link)= item.name
-		li.menu__item
-			a.font.link.popup__show(data="#popup1") Login

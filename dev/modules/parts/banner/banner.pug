@@ -1,0 +1,14 @@
+mixin banner(value)
+	.banner.flex-container.flex-dir-column.cut&attributes(attributes)
+		.banner__header.text-center
+			.h5
+				span.currency__value 2497.4
+				span.currency__data.text-uppercase ADA
+		.banner__body.flex-container.flex-dir-column.align-center-middle.flex-grow
+			.h4.currency__title 
+				span.currency__change &euro;
+				span.currency__change-data 87
+			+button('button').button--primary Buy Now
+			p.font.currency
+				span.currency__value You get 24.99.8
+				span.currency__data.text-uppercase ADA

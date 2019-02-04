@@ -18,27 +18,6 @@
 /* Base modules */
 @import './dev/modules/base/button/button';
 @import './dev/modules/base/field/field';
-@import './dev/modules/base/textarea/textarea';
-
-@import './dev/modules/base/radio/radio';
-@import './dev/modules/base/checkbox/checkbox';
-
-/* Parts modules */
-@import './dev/modules/parts/nav/nav';
-@import './dev/modules/parts/logo/logo';
-@import './dev/modules/parts/menu/menu';
-@import './dev/modules/parts/breadcrumbs/breadcrumbs';
-@import './dev/modules/parts/show-menu/show-menu';
-@import './dev/modules/parts/article/article';
-
-@import './dev/modules/parts/shadow/shadow';
-@import './dev/modules/parts/popup/popup';
-@import './dev/modules/parts/close/close';
 
 
-/* Layout modules */
-@import './dev/modules/layout/header/header';
-@import './dev/modules/layout/footer/footer';
-
-/* Rewrite plugins style */
-//@import './dev/style/base/plugins';
+@import './dev/modules/parts/banner/banner';

@@ -5,111 +5,102 @@ $(document).ready(function(){
 });
 
 
+$('.crypto').click(function(){
+	var data = $(this).attr('data');
+	$('.crypto').removeClass('active');
+	$(this).addClass('active');
+
+	$('.pricing').slideUp();
+	$(data).slideDown();
+});
 
 
 
 
 
+function Currency(currency, cost){
+	this._currency = currency;
+	this._cost = cost;
 
 
+	this.getCurrency = function(){
+		alert(this._cost);
+	}
 
+	this.drawData = function(){
+		//var crypto = ['btc','eth','xrp','ltc','bch','ada','qtum'];
+		var range = [100, 250, 1000, 3000];
+		var html = '';
+		var banners = '';
+		var crypto = [
+			{
+				name: "btc",
+				value: 2777
+			},
+			{
+				name: "eth",
+				value: 890
+			},
+			{
+				name: "xrp",
+				value: 317
+			},
+			{
+				name: "ltc",
+				value: 0.282
+			},
+			{
+				name: "bch",
+				value: 0.80
+			},
+			{
+				name: "ada",
+				value: 2502
+			},
+			{
+				name: "qtum",
+				value: 5223
+			}
+		]
 
-
-function Nav(){
-  this._nav = $('.nav');
-  this._parent = $('.header');
-  this._navHeight = this._nav.outerHeight();
-  this._navDefaultClass = 'nav--default';
-  this._navFixedClass = 'nav--fixed';
-
-  this.stickyMenu = function(){
-    if ($(window).scrollTop() > 0 && this._nav.hasClass(this._navDefaultClass)) {
-      this._nav.removeClass(this._navDefaultClass).addClass(this._navFixedClass);
-      this._parent.css('padding-top', this._navHeight);
-    }
-    else if($(window).scrollTop() <= 0 && this._nav.hasClass(this._navFixedClass)){
-      this._nav.removeClass(this._navFixedClass).addClass(this._navDefaultClass);
-      this._parent.css('padding-top', 0);
-    }
-  }
+		
+		$.each(crypto, function (index, value) {
+		  	html += '<div class="pricing" id="'+value.name+'">'+
+						'<div class="row">';
+						$.each(range, function (index, data) {
+							html += '<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-3">'+
+											'<div class="banner flex-container flex-dir-column cut">'+
+												'<div class="banner__header text-center">'+
+													'<h5 class="h5 currency__data">'+
+														'<span class="surrency__value">'+ data / value.value +'</span>'+
+														'<span class="currency__data text-uppercase ">'+ value.name +'</span>'+
+													'</h5>'+
+												'</div>'+
+												'<div class="banner__body flex-container flex-dir-column align-center-middle flex-grow">'+
+													'<h4 class="h4 currency__title">'+
+														'<span>&euro;</span>'+
+														'<span>'+data+'</span>'+
+													'</h4>'+
+													'<button class="button--primary">Buy Now</button>'+
+													'<p class="font currency__data">'+
+														'<span>You get '+ data / value.value +'</span>'+
+														'<span class="text-uppercase">'+ value.name +'</span>'+
+													'</p>'+
+												'</div>'+
+											'</div>'+
+										'</div>';
+						});
+				html +=	'</div>'+
+					'</div>';
+		});
+		$('#cha').append(html);
+		benners = '';
+	}
 }
 
-var nav = new Nav();
-$(window).scroll(function(){
-  nav.stickyMenu();
-});
-nav.stickyMenu();
+
+var currency = new Currency('btc', '2227');
+currency.drawData();
 
 
-function Dialog(popup, shadow, shadowBlock, popupBlock){
-	this._shadowBlock = shadowBlock;
-	this._popupBlock = popupBlock;
-	this._shadow = shadow;
-	this._popup = popup;
-	this._changeDialog = function(){
-		this._shadow = this._shadow == true ? false : true
-		this._popup = this._popup == true ? false : true
-		if (this._shadow == true && this._popup == true) {
-			this._shadowBlock.show();
-			this._popupBlock.show();
-			$('html, body').css('overflowY', 'hidden'); 
-		}
-		else{
-			this._shadowBlock.hide();
-			this._popupBlock.hide();
-			$('html, body').css('overflowY', 'auto'); 
-		}
-	}
-	this.showDialog = function(popup){
-		this._popupBlock = $(popup);
-		this._changeDialog();
-	}
-	this.closeDialog = function(){
-		this._changeDialog();
-	}
-}
 
-var shadowBlock = $('.shadow'),
-	popupBlock = $('.popup'),
-	dialog = new Dialog(false, false, shadowBlock, popupBlock);
-
-$('.popup__show').click(function(){
-	var attr = $(this).attr('data');
-	if ($(attr).hasClass('popup')) {
-		dialog.showDialog(attr);
-	}
-});
-
-$('.popup__close').click(function(){
-	dialog.closeDialog();
-});
-
-function Menu(menu, show, menuBlock, menuShowBlock){
-	this._menu = menu;
-	this._show = show;
-	this._menuBlock = menuBlock;
-	this._menuShowBlock = menuShowBlock;
-	this._menuClassActive = 'menu--active';
-	this._menuShowClassActive = 'show-menu--active';
-	this.changeMenu = function(){
-		this._menu = this._menu == true ? false : true
-		this._show = this._show == true ? false : true
-		if (this._menu == true && this._show == true) {
-			this._menuBlock.addClass(this._menuClassActive);
-			this._menuShowBlock.addClass(this._menuShowClassActive);
-			$('html, body').css('overflowY', 'hidden'); 
-		}
-		else{
-			this._menuBlock.removeClass(this._menuClassActive);
-			this._menuShowBlock.removeClass(this._menuShowClassActive);
-			$('html, body').css('overflowY', 'auto'); 
-		}
-	}
-}
-var menuBlock = $('.menu'),
-	menuShowBlock = $('.show-menu'),
-	menu = new Menu(false, false, menuBlock, menuShowBlock);
-
-menuShowBlock.click(function(){
-	menu.changeMenu();
-});

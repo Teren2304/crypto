@@ -1,39 +1,19 @@
 extends ../template/template.pug
-block content	
-	+header
-		+nav.nav--default
-			.container.flex-container.align-middle.align-justify
-				+logo('/')
-				+menu
-				+show-menu
-
-		.container-fluid
+block content
+	.page
+		main.main
 			.container
-				p Header
+				.flex-container.align-justify
+					.flex-container.align-middle.options
+						+button('button')(data="#btc").crypto.active BTC
+						+button('button')(data="#eth").crypto ETH
+						+button('button')(data="#xrp").crypto XRP
+						+button('button')(data="#ltc").crypto LTC
+						+button('button')(data="#bch").crypto BCH
+						+button('button')(data="#ada").crypto ADA
+						+button('button')(data="#qtum").crypto QTUM
+					.flex-container.align-middle.options
+						+button('button')(data="usd") USD
+						+button('button')(data="eur") EUR
 
-	main.main
-		.container
-			-var breadcrumbs = [{link: "/", name: "Home"}, {name: "Blog"}];
-			+breadcrumbs(breadcrumbs)
-			.row
-				.col-12.col-sm-12.col-md-6.col-lg-6.col-xl-3
-					-var article = [{title: "Article 1", text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas ipsa neque aliquam, repudiandae rerum voluptate facilis hic suscipit quis, fugit ducimus blanditiis, adipisci quisquam sapiente tempora modi odit, illo possimus.", date: "01.01.2018", img: "article/img/article-bg-1.jpg"}];
-					+article(article)
-				.col-12.col-sm-12.col-md-6.col-lg-6.col-xl-3
-					-var article = [{title: "Article 2", text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas ipsa neque aliquam, repudiandae rerum voluptate facilis hic suscipit quis, fugit ducimus blanditiis, adipisci quisquam sapiente tempora modi odit, illo possimus.", date: "01.01.2018", img: "article/img/article-bg-1.jpg"}];
-					+article(article)
-				.col-12.col-sm-12.col-md-6.col-lg-6.col-xl-3
-					-var article = [{title: "Article 3", text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas ipsa neque aliquam, repudiandae rerum voluptate facilis hic suscipit quis, fugit ducimus blanditiis, adipisci quisquam sapiente tempora modi odit, illo possimus.", date: "01.01.2018", img: "article/img/article-bg-1.jpg"}];
-					+article(article)
-				.col-12.col-sm-12.col-md-6.col-lg-6.col-xl-3
-					-var article = [{title: "Article 4", text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas ipsa neque aliquam, repudiandae rerum voluptate facilis hic suscipit quis, fugit ducimus blanditiis, adipisci quisquam sapiente tempora modi odit, illo possimus.", date: "01.01.2018", img: "article/img/article-bg-1.jpg"}];
-					+article(article)
-
-	+footer
-		.container
-			p Footer
-
-	+shadow
-		+popup(id="popup1")
-			+close.popup__close
-			p popup1
+			.container#cha
