@@ -5,9 +5,9 @@ $(document).ready(function(){
 });
 
 
-$('.crypto').click(function(){
+$('.button-crypto').click(function(){
 	var data = $(this).attr('data');
-	$('.crypto').removeClass('active');
+	$('.button-crypto').removeClass('active');
 	$(this).addClass('active');
 
 	$('.pricing').slideUp();
@@ -16,30 +16,37 @@ $('.crypto').click(function(){
 
 
 
+$('.button-currency').click(function(){
+	var data = $(this).attr('data');
+
+	$('.button-currency').removeClass('active');
+	$(this).addClass('active');
+
+	currency.drawData(data);
+	currency.findActive();
+});
 
 
-function Currency(currency, cost){
-	this._currency = currency;
-	this._cost = cost;
+function Currency(){
+	
+
+	this._currency = 'eur';
 
 
-	this.getCurrency = function(){
-		alert(this._cost);
-	}
-
-	this.drawData = function(){
-		//var crypto = ['btc','eth','xrp','ltc','bch','ada','qtum'];
-		var range = [100, 250, 1000, 3000];
+	this.drawData = function(currency){
+		$('#pricing-packages').html('');
+		var self = this;
+		this._currency = currency;
+		var range = this._currency == 'usd' ? [100, 250, 1000, 3000] : [87, 218, 873, 2620];
 		var html = '';
-		var banners = '';
 		var crypto = [
 			{
 				name: "btc",
-				value: 2777
+				value: 3611.54
 			},
 			{
 				name: "eth",
-				value: 890
+				value: 114.53
 			},
 			{
 				name: "xrp",
@@ -51,7 +58,7 @@ function Currency(currency, cost){
 			},
 			{
 				name: "bch",
-				value: 0.80
+				value: 128.8
 			},
 			{
 				name: "ada",
@@ -62,8 +69,6 @@ function Currency(currency, cost){
 				value: 5223
 			}
 		]
-
-		
 		$.each(crypto, function (index, value) {
 		  	html += '<div class="pricing" id="'+value.name+'">'+
 						'<div class="row">';
@@ -75,13 +80,15 @@ function Currency(currency, cost){
 														'<span class="surrency__value">'+ data / value.value +'</span>'+
 														'<span class="currency__data text-uppercase ">'+ value.name +'</span>'+
 													'</h5>'+
-												'</div>'+
+											'</div>'+
 												'<div class="banner__body flex-container flex-dir-column align-center-middle flex-grow">'+
 													'<h4 class="h4 currency__title">'+
-														'<span>&euro;</span>'+
+														'<span>';
+														html += self._currency == 'usd'? '$': '€'
+														html +='</span>'+
 														'<span>'+data+'</span>'+
 													'</h4>'+
-													'<button class="button--primary">Buy Now</button>'+
+													'<button class="button button--primary">Buy Now</button>'+
 													'<p class="font currency__data">'+
 														'<span>You get '+ data / value.value +'</span>'+
 														'<span class="text-uppercase">'+ value.name +'</span>'+
@@ -93,14 +100,16 @@ function Currency(currency, cost){
 				html +=	'</div>'+
 					'</div>';
 		});
-		$('#cha').append(html);
+		$('#pricing-packages').append(html);
 		benners = '';
 	}
+	this.findActive = function(){
+		var active = $('.options .button-crypto.active').attr('data');
+		$(active).slideDown();
+	}
+
 }
 
-
-var currency = new Currency('btc', '2227');
-currency.drawData();
-
-
-
+var currency = new Currency();
+currency.drawData('usd');
+currency.findActive();

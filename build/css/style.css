@@ -872,8 +872,6 @@ hr {
   border: 1px solid red;
   display: none;
   padding: 10px 0; }
-  .pricing:first-child {
-    display: block; }
 
 .currency__data * {
   margin: 0 2px; }
